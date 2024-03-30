@@ -84,8 +84,12 @@ public class SecurityConfig {
             throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
+                        //permit all if needed in test
                         .anyRequest().authenticated()
                 )
+                //disabled this to test..
+                //.csrf().disable()
+                //.cors().disable()
                 // Form login handles the redirect to the login page from the
                 // authorization server filter chain
                 .formLogin(Customizer.withDefaults());
